@@ -27,3 +27,4 @@ void PauseLoop(string id);
 void ResumeLoop(string id);
 void StopLoop(string id, STOP_MODE stopMode = STOP_MODE.ALLOWFADEOUT);
 ```
+

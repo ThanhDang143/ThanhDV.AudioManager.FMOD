@@ -8,6 +8,7 @@ namespace ThanhDV.FMODIntegration
     public class Tester : MonoBehaviour
     {
         [SerializeField] private EventReference bgmEventReference;
+        [SerializeField] private EventReference footEventReference;
 
         void Start()
         {
@@ -34,6 +35,21 @@ namespace ThanhDV.FMODIntegration
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
                 AudioManager.Instance.StopBGM();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                AudioManager.Instance.PlayLoop("X", footEventReference, gameObject);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                AudioManager.Instance.StopLoop("X");
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha7))
+            {
+                Destroy(AudioManager.Instance.gameObject);
             }
         }
     }

@@ -271,6 +271,13 @@ MonoBehaviour:
       Data3: -261621348
       Data4: -48242944
     Path: event:/Music/Level 01
+  footEventReference:
+    Guid:
+      Data1: -373839110
+      Data2: 1100164592
+      Data3: 1319579315
+      Data4: -1597025449
+    Path: event:/Weapons/Machine Gun
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
