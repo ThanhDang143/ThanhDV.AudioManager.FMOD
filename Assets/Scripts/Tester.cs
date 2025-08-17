@@ -51,6 +51,24 @@ namespace ThanhDV.FMODIntegration
             {
                 Destroy(AudioManager.Instance.gameObject);
             }
+
+            if (Input.GetKeyDown(KeyCode.Alpha8))
+            {
+                float volume = AudioManager.Instance.GetVolume(AudioType.MASTER);
+                AudioManager.Instance.SetVolume(AudioType.MASTER, volume <= 0 ? 1f : 0f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha9))
+            {
+                float volume = AudioManager.Instance.GetVolume(AudioType.BGM);
+                AudioManager.Instance.SetVolume(AudioType.BGM, volume <= 0 ? 1f : 0f);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                float volume = AudioManager.Instance.GetVolume(AudioType.SFX);
+                AudioManager.Instance.SetVolume(AudioType.SFX, volume <= 0 ? 1f : 0f);
+            }
         }
     }
 }

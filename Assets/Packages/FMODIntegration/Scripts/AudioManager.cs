@@ -47,6 +47,11 @@ namespace ThanhDV.FMODIntegration
             {
                 _instance = this as AudioManager;
                 DontDestroyOnLoad(_instance);
+
+                InitializeAudioBusses();
+#if UNITY_EDITOR
+                InitializeDebug();
+#endif
                 return;
             }
 
@@ -57,6 +62,80 @@ namespace ThanhDV.FMODIntegration
         private EventInstance bgmInstance;
         private CancellationTokenSource bgmOperationCTS;
         private readonly Dictionary<string, EventInstance> loopingInstances = new();
+
+        private Dictionary<AudioType, Bus> audioBusses;
+
+#if UNITY_EDITOR
+
+        [SerializeField, Range(0f, 1f)] private float masterVolume;
+        [SerializeField, Range(0f, 1f)] private float bgmVolume;
+        [SerializeField, Range(0f, 1f)] private float sfxVolume;
+
+        private void InitializeDebug()
+        {
+            masterVolume = GetVolume(AudioType.MASTER);
+            bgmVolume = GetVolume(AudioType.BGM);
+            sfxVolume = GetVolume(AudioType.SFX);
+        }
+
+        private void OnValidate()
+        {
+            SetVolume(AudioType.MASTER, masterVolume);
+            SetVolume(AudioType.BGM, bgmVolume);
+            SetVolume(AudioType.SFX, sfxVolume);
+        }
+
+#endif
+
+        #region Audio volume
+
+        private void InitializeAudioBusses()
+        {
+            audioBusses = new();
+
+            InitializeAudioBus(AudioType.MASTER, "bus:/");
+            InitializeAudioBus(AudioType.BGM, "bus:/BGM");
+            InitializeAudioBus(AudioType.SFX, "bus:/SFX");
+        }
+
+        private void InitializeAudioBus(AudioType type, string busPath)
+        {
+            try
+            {
+                Bus masterBus = RuntimeManager.GetBus(busPath);
+                audioBusses.TryAdd(type, masterBus);
+            }
+            catch (BusNotFoundException)
+            {
+                Debug.Log($"<color=red>[FMODIntegration] Bus not found: '{busPath}'. Please check your FMOD Studio project!!!</color>");
+            }
+        }
+
+        public void SetVolume(AudioType type, float volume)
+        {
+            if (!audioBusses.TryGetValue(type, out Bus bus))
+            {
+                Debug.Log($"<color=red>[FMODIntegration] Bus not found: '{type.ToString()}'. Please check your FMOD Studio project or Initialize first!!!</color>");
+                return;
+            }
+
+            volume = Mathf.Clamp01(volume);
+            bus.setVolume(volume);
+        }
+
+        public float GetVolume(AudioType type)
+        {
+            if (!audioBusses.TryGetValue(type, out Bus bus))
+            {
+                Debug.Log($"<color=red>[FMODIntegration] Bus not found: '{type.ToString()}'. Please check your FMOD Studio project or Initialize first!!!</color>");
+                return -1f;
+            }
+
+            bus.getVolume(out float volume);
+            return volume;
+        }
+
+        #endregion
 
         #region One-Shot
         /// <summary>
@@ -331,5 +410,12 @@ namespace ThanhDV.FMODIntegration
             loopingInstances.Clear();
         }
         #endregion
+    }
+
+    public enum AudioType
+    {
+        MASTER,
+        BGM,
+        SFX
     }
 }

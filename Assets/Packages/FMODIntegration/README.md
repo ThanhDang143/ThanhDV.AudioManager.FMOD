@@ -8,10 +8,14 @@ Lightweight central audio controller for Unity + FMOD. Handles one‑shots, musi
 * Cancellation-safe transitions (new call cancels current fade task)
 * Loop sounds tracked by ID (optional GameObject attachment for 3D positioning)
 * Automatic cleanup on destroy (stop + release)
+* Control volume by channel
 * Lazy singleton (`AudioManager.Instance`) with `DontDestroyOnLoad`
 
 ## Quick Use
 ```csharp
+void SetVolume(AudioType type, float volume);
+float GetVolume(AudioType type);
+
 void PlayOneShot(EventReference reference);
 void PlayOneShot(string path);
 void PlayOneShot(EventReference reference, Vector3 pos);
