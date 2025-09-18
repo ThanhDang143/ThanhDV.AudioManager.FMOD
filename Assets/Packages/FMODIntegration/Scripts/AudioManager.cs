@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using FMOD.Studio;
@@ -144,7 +142,7 @@ namespace ThanhDV.FMODIntegration
         /// <param name="sfxReference">The FMOD Event Reference for the SFX.</param>
         public void PlayOneShot(EventReference sfxReference)
         {
-            PlayOneShot(sfxReference.Path);
+            RuntimeManager.PlayOneShot(sfxReference);
         }
 
         /// <summary>
@@ -163,7 +161,7 @@ namespace ThanhDV.FMODIntegration
         /// <param name="position">The world position to play the sound at.</param>
         public void PlayOneShot(EventReference sfxReference, Vector3 position)
         {
-            PlayOneShot(sfxReference.Path, position);
+            RuntimeManager.PlayOneShot(sfxReference, position);
         }
 
         /// <summary>
@@ -186,7 +184,10 @@ namespace ThanhDV.FMODIntegration
         /// <param name="delay">The time to wait after the old track starts fading out before the new track starts fading in. 0 = Crossfade, fadeDuration = Sequential Fade.</param>
         public void PlayBGM(EventReference bgmReference, float fadeDuration = 1.0f, float delay = 0f)
         {
-            PlayBGM(bgmReference.Path, fadeDuration, delay);
+            bgmOperationCTS?.Cancel();
+            bgmOperationCTS = new CancellationTokenSource();
+
+            _ = PerformBgmTransitionAsync(bgmReference, fadeDuration, delay, bgmOperationCTS.Token);
         }
 
         /// <summary>
@@ -248,6 +249,54 @@ namespace ThanhDV.FMODIntegration
                 if (token.IsCancellationRequested) return;
 
                 EventInstance newInstance = RuntimeManager.CreateInstance(newBgmPath);
+                newInstance.start();
+                bgmInstance = newInstance;
+
+                await FadeInstance(newInstance, 0f, 1.0f, duration, token);
+            }
+            catch (TaskCanceledException)
+            {
+                Debug.Log("<color=red>[FMODIntegration] BGM fade-in was cancelled!!!</color>");
+                if (bgmInstance.isValid())
+                {
+                    bgmInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                    bgmInstance.release();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Handles transitioning the current BGM to a new track: fades out the current instance.
+        /// </summary>
+        /// <param name="newBgmRef">The FMOD event reference for the new BGM. If null or empty, the current BGM is simply stopped.</param>
+        /// <param name="duration">The fade duration (in seconds) applied to both the fade-out of the old instance and the fade-in of the new one.</param>
+        /// <param name="delay">Optional delay (in seconds) after starting the old fade-out before starting and fading in the new instance. 0 = immediate / crossfade.</param>
+        /// <param name="token">A cancellation token to abort the transition early; when cancelled, any started instance is stopped and released.</param>
+        /// <returns>A Task representing the asynchronous transition operation.</returns>
+        private async Task PerformBgmTransitionAsync(EventReference newBgmRef, float duration, float delay, CancellationToken token)
+        {
+            EventInstance oldInstance = bgmInstance;
+            if (oldInstance.isValid())
+            {
+                _ = FadeOutAndRelease(oldInstance, duration, token);
+            }
+
+            if (newBgmRef.IsNull)
+            {
+                bgmInstance = new EventInstance();
+                return;
+            }
+
+            try
+            {
+                if (delay > 0)
+                {
+                    await Task.Delay(TimeSpan.FromSeconds(delay), token);
+                }
+
+                if (token.IsCancellationRequested) return;
+
+                EventInstance newInstance = RuntimeManager.CreateInstance(newBgmRef);
                 newInstance.start();
                 bgmInstance = newInstance;
 
@@ -339,7 +388,16 @@ namespace ThanhDV.FMODIntegration
         /// <param name="attachedObject">Optional: The GameObject to attach the sound to for 3D positioning.</param>
         public void PlayLoop(string id, EventReference loopReference, GameObject attachedObject = null)
         {
-            PlayLoop(id, loopReference.Path, attachedObject);
+            if (loopingInstances.ContainsKey(id)) return;
+
+            EventInstance loopInstance = RuntimeManager.CreateInstance(loopReference);
+            if (attachedObject != null)
+            {
+                RuntimeManager.AttachInstanceToGameObject(loopInstance, attachedObject.transform, attachedObject.GetComponent<Rigidbody>());
+            }
+
+            loopInstance.start();
+            loopingInstances.Add(id, loopInstance);
         }
 
         /// <summary>

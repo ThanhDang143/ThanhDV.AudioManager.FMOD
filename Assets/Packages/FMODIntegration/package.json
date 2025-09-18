@@ -1,8 +1,8 @@
 {
-    "name": "thanhdv.fmod",
-    "version": "0.0.2",
+    "name": "thanhdv.audiomanager.fmod",
+    "version": "1.0.0",
     "displayName": "ThanhDV's Audio Manager",
-    "description": "TLightweight central audio controller for Unity + FMOD. Handles one‑shots, music transitions, and managed looping sounds with safe async fade logic.",
+    "description": "Lightweight central audio controller for Unity + FMOD. Handles one‑shots, music transitions, and managed looping sounds with safe async fade logic.",
     "unity": "2022.3",
     "keywords": [
         "AudioManager",
