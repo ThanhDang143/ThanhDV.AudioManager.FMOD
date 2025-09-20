@@ -1,6 +1,6 @@
 {
-    "name": "FMODIntegration",
-    "rootNamespace": "ThanhDV.FMODIntegration",
+    "name": "AudioManager.FMOD",
+    "rootNamespace": "ThanhDV.AudioManager.FMOD",
     "references": [
         "GUID:0c752da273b17c547ae705acf0f2adf2"
     ],

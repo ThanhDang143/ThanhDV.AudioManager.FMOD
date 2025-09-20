@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using FMODUnity;
 using UnityEngine;
 
-namespace ThanhDV.FMODIntegration
+namespace ThanhDV.AudioManager.FMOD
 {
     public class Tester : MonoBehaviour
     {

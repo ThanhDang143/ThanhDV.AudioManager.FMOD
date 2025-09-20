@@ -6,7 +6,7 @@ using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
 
-namespace ThanhDV.FMODIntegration
+namespace ThanhDV.AudioManager.FMOD
 {
     public class AudioManager : MonoBehaviour
     {
@@ -259,7 +259,7 @@ namespace ThanhDV.FMODIntegration
                 Debug.Log("<color=red>[FMODIntegration] BGM fade-in was cancelled!!!</color>");
                 if (bgmInstance.isValid())
                 {
-                    bgmInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                    bgmInstance.stop(global::FMOD.Studio.STOP_MODE.IMMEDIATE);
                     bgmInstance.release();
                 }
             }
@@ -307,7 +307,7 @@ namespace ThanhDV.FMODIntegration
                 Debug.Log("<color=red>[FMODIntegration] BGM fade-in was cancelled!!!</color>");
                 if (bgmInstance.isValid())
                 {
-                    bgmInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                    bgmInstance.stop(global::FMOD.Studio.STOP_MODE.IMMEDIATE);
                     bgmInstance.release();
                 }
             }
@@ -352,7 +352,7 @@ namespace ThanhDV.FMODIntegration
             }
             finally
             {
-                instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                instance.stop(global::FMOD.Studio.STOP_MODE.IMMEDIATE);
                 instance.release();
             }
         }
@@ -430,7 +430,7 @@ namespace ThanhDV.FMODIntegration
         /// </summary>
         /// <param name = "id" > The unique ID of the sound to stop.</param>
         /// <param name = "stopMode" > How to stop the sound(e.g., allow fade out or immediate).</param>
-        public void StopLoop(string id, FMOD.Studio.STOP_MODE stopMode = FMOD.Studio.STOP_MODE.ALLOWFADEOUT)
+        public void StopLoop(string id, global::FMOD.Studio.STOP_MODE stopMode = global::FMOD.Studio.STOP_MODE.ALLOWFADEOUT)
         {
             if (loopingInstances.TryGetValue(id, out EventInstance instance))
             {
@@ -455,14 +455,14 @@ namespace ThanhDV.FMODIntegration
             // Clean up the main BGM instance
             if (bgmInstance.isValid())
             {
-                bgmInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                bgmInstance.stop(global::FMOD.Studio.STOP_MODE.IMMEDIATE);
                 bgmInstance.release();
             }
 
             // Clean up all looping sounds
             foreach (var ins in loopingInstances)
             {
-                ins.Value.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                ins.Value.stop(global::FMOD.Studio.STOP_MODE.IMMEDIATE);
                 ins.Value.release();
             }
             loopingInstances.Clear();

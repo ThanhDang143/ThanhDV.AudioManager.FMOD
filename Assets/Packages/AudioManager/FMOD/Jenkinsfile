@@ -13,7 +13,7 @@ pipeline {
 
     environment {
         // Path to the directory containing package.json
-        PROJECT_PATH = "Assets/Packages/FMODIntegration"
+        PROJECT_PATH = "Assets/Packages/AudioManager/FMOD"
 
         // Verdaccio registry URL
         VERDACCIO_REGISTRY_URL = "https://upm.thanhdv.icu"

@@ -14,6 +14,9 @@
         "url": "https://books.thanhdv.icu/"
     },
     "dependencies": {},
+    "tpmDependencies": {
+        "FMOD": "2.02.30"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ThanhDang143/ThanhDV.FMODIntegration.git"
