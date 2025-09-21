@@ -65,6 +65,7 @@ namespace ThanhDV.AudioManager.FMOD
 
 #if UNITY_EDITOR
 
+        [Header("Volume")]
         [SerializeField, Range(0f, 1f)] private float masterVolume;
         [SerializeField, Range(0f, 1f)] private float bgmVolume;
         [SerializeField, Range(0f, 1f)] private float sfxVolume;
@@ -83,6 +84,12 @@ namespace ThanhDV.AudioManager.FMOD
             SetVolume(AudioType.SFX, sfxVolume);
         }
 
+        private void Update()
+        {
+            masterVolume = GetVolume(AudioType.MASTER);
+            bgmVolume = GetVolume(AudioType.BGM);
+            sfxVolume = GetVolume(AudioType.SFX);
+        }
 #endif
 
         #region Audio volume
