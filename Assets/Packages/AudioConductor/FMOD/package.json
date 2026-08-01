@@ -1,0 +1,23 @@
+{
+    "name": "thanhdv.audioconductor.fmod",
+    "version": "3.0.0",
+    "displayName": "AudioConductor",
+    "description": "Lightweight central audio controller for Unity + FMOD. Handles one-shots, music transitions, and managed looping sounds with safe async fade logic.",
+    "unity": "2022.3",
+    "keywords": [
+        "AudioConductor",
+        "AudioManager",
+        "FMOD"
+    ],
+    "author": {
+        "name": "ThanhDV",
+        "email": "vanthanh1998@gmail.com",
+        "url": "https://knowledge.thanhdv.com/"
+    },
+    "dependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ThanhDV143/ThanhDV.AudioConductor.FMOD.git"
+    },
+    "license": "MIT"
+}

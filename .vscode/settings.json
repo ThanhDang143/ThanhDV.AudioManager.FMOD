@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "ThanhDV.AudioManager.FMOD.slnx"
+    "dotnet.defaultSolution": "ThanhDV.AudioConductor.FMOD.slnx"
 }

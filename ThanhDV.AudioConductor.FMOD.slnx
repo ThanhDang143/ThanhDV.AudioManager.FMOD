@@ -1,0 +1,14 @@
+﻿<Solution>
+  <Project Path="FMODUnity.csproj" />
+  <Project Path="AudioConductor.FMOD.Editor.csproj" />
+  <Project Path="FMODUnityEditor.csproj" />
+  <Project Path="AudioConductor.FMOD.Data.csproj" />
+  <Project Path="AudioConductor.FMOD.Reference.csproj" />
+  <Project Path="AudioConductor.FMOD.Runtime.csproj" />
+  <Project Path="FMODUnityResonanceEditor.csproj" />
+  <Project Path="FMODUnityResonance.csproj" />
+  <Project Path="Assembly-CSharp-firstpass.csproj" />
+  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="AudioConductor.FMOD.IO.csproj" />
+  <Project Path="AudioConductor.FMOD.Helper.csproj" />
+</Solution>

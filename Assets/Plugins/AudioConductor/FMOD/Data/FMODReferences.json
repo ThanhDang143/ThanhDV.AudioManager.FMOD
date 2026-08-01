@@ -1,0 +1,414 @@
+{
+    "Buses": [
+        {
+            "Key": "SFX_Character",
+            "BusPath": "bus:/SFX/Character"
+        },
+        {
+            "Key": "SFX_Ambience",
+            "BusPath": "bus:/SFX/Ambience"
+        },
+        {
+            "Key": "SFX_Explosions",
+            "BusPath": "bus:/SFX/Explosions"
+        },
+        {
+            "Key": "VO",
+            "BusPath": "bus:/VO"
+        },
+        {
+            "Key": "SFX_Vehicles",
+            "BusPath": "bus:/SFX/Vehicles"
+        },
+        {
+            "Key": "SFX_Weapons",
+            "BusPath": "bus:/SFX/Weapons"
+        },
+        {
+            "Key": "SFX",
+            "BusPath": "bus:/SFX"
+        },
+        {
+            "Key": "Music",
+            "BusPath": "bus:/Music"
+        },
+        {
+            "Key": "SFX_Objects",
+            "BusPath": "bus:/SFX/Objects"
+        },
+        {
+            "Key": "UI",
+            "BusPath": "bus:/UI"
+        },
+        {
+            "Key": "SFX_Reverb",
+            "BusPath": "bus:/SFX/Reverb"
+        },
+        {
+            "Key": "Master",
+            "BusPath": "bus:/"
+        }
+    ],
+    "EventReferences": [
+        {
+            "Key": "snapshot__Slow_Motion",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 1854770441,
+                    "Data2": 1221530336,
+                    "Data3": -856088394,
+                    "Data4": -1552366533
+                },
+                "Path": "snapshot:/Slow-Motion"
+            }
+        },
+        {
+            "Key": "snapshot__Health_Low",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -2014691020,
+                    "Data2": 1318977521,
+                    "Data3": 1244236687,
+                    "Data4": 595743019
+                },
+                "Path": "snapshot:/Health Low"
+            }
+        },
+        {
+            "Key": "snapshot__Reverb_Sewer_Reverb",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -1056447858,
+                    "Data2": 1286244155,
+                    "Data3": -26701164,
+                    "Data4": 1208754546
+                },
+                "Path": "snapshot:/Reverb/Sewer Reverb"
+            }
+        },
+        {
+            "Key": "snapshot__Pause",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -486169448,
+                    "Data2": 1176316696,
+                    "Data3": -1368499021,
+                    "Data4": -693149788
+                },
+                "Path": "snapshot:/Pause"
+            }
+        },
+        {
+            "Key": "snapshot__Reverb_Cave_Reverb",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -1231688000,
+                    "Data2": 1196818040,
+                    "Data3": -1869216072,
+                    "Data4": 201092544
+                },
+                "Path": "snapshot:/Reverb/Cave Reverb"
+            }
+        },
+        {
+            "Key": "Music_Level_03",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -334097318,
+                    "Data2": 1260140306,
+                    "Data3": 651052185,
+                    "Data4": -1957406073
+                },
+                "Path": "event:/Music/Level 03"
+            }
+        },
+        {
+            "Key": "Music_Level_01",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 1958460028,
+                    "Data2": 1217165032,
+                    "Data3": -261621348,
+                    "Data4": -48242944
+                },
+                "Path": "event:/Music/Level 01"
+            }
+        },
+        {
+            "Key": "Music_Radio_Station",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -1284853857,
+                    "Data2": 1279602452,
+                    "Data3": 1660743820,
+                    "Data4": -1969025494
+                },
+                "Path": "event:/Music/Radio Station"
+            }
+        },
+        {
+            "Key": "Music_Level_02",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -939964675,
+                    "Data2": 1234949781,
+                    "Data3": 661987496,
+                    "Data4": 496157849
+                },
+                "Path": "event:/Music/Level 02"
+            }
+        },
+        {
+            "Key": "Character_Player_Footsteps",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -385494015,
+                    "Data2": 1195472629,
+                    "Data3": -2064153176,
+                    "Data4": 1900422219
+                },
+                "Path": "event:/Character/Player Footsteps"
+            }
+        },
+        {
+            "Key": "Character_Door_Open",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 1652904472,
+                    "Data2": 1192208627,
+                    "Data3": -125142357,
+                    "Data4": -1149771785
+                },
+                "Path": "event:/Character/Door Open"
+            }
+        },
+        {
+            "Key": "Weapons_Explosion",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 526938424,
+                    "Data2": 1089855596,
+                    "Data3": -128471909,
+                    "Data4": -739394485
+                },
+                "Path": "event:/Weapons/Explosion"
+            }
+        },
+        {
+            "Key": "Character_Enemy_Footsteps",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 347416895,
+                    "Data2": 1223030430,
+                    "Data3": 47099559,
+                    "Data4": -643625871
+                },
+                "Path": "event:/Character/Enemy Footsteps"
+            }
+        },
+        {
+            "Key": "Interactables_Barrel_Roll",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -1003740608,
+                    "Data2": 1122878646,
+                    "Data3": 1192915876,
+                    "Data4": -364537359
+                },
+                "Path": "event:/Interactables/Barrel Roll"
+            }
+        },
+        {
+            "Key": "Character_Door_Close",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 1125158724,
+                    "Data2": 1215768668,
+                    "Data3": -380992089,
+                    "Data4": 1039913086
+                },
+                "Path": "event:/Character/Door Close"
+            }
+        },
+        {
+            "Key": "Ambience_Country",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 614123342,
+                    "Data2": 1179152036,
+                    "Data3": 1814092417,
+                    "Data4": 28844622
+                },
+                "Path": "event:/Ambience/Country"
+            }
+        },
+        {
+            "Key": "Ambience_City",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -1147629186,
+                    "Data2": 1106302555,
+                    "Data3": 130402976,
+                    "Data4": 239065686
+                },
+                "Path": "event:/Ambience/City"
+            }
+        },
+        {
+            "Key": "Character_Radio_Dialogue",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 1136926599,
+                    "Data2": 1277521951,
+                    "Data3": 432447913,
+                    "Data4": 308547786
+                },
+                "Path": "event:/Character/Radio Dialogue"
+            }
+        },
+        {
+            "Key": "UI_Okay",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -1840800105,
+                    "Data2": 1164219590,
+                    "Data3": -1091619938,
+                    "Data4": 1253267948
+                },
+                "Path": "event:/UI/Okay"
+            }
+        },
+        {
+            "Key": "Character_Dialogue",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -1700598587,
+                    "Data2": 1321134667,
+                    "Data3": 1258668933,
+                    "Data4": -853691887
+                },
+                "Path": "event:/Character/Dialogue"
+            }
+        },
+        {
+            "Key": "Weapons_Pistol",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 63462863,
+                    "Data2": 1083491563,
+                    "Data3": 964216707,
+                    "Data4": -396832587
+                },
+                "Path": "event:/Weapons/Pistol"
+            }
+        },
+        {
+            "Key": "Character_Health",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 586415830,
+                    "Data2": 1342122821,
+                    "Data3": 1364428202,
+                    "Data4": -840343620
+                },
+                "Path": "event:/Character/Health"
+            }
+        },
+        {
+            "Key": "Interactables_Wooden_Collision",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -1100872744,
+                    "Data2": 1103481048,
+                    "Data3": -524491124,
+                    "Data4": 2072024542
+                },
+                "Path": "event:/Interactables/Wooden Collision"
+            }
+        },
+        {
+            "Key": "Ambience_Forest",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 1198788837,
+                    "Data2": 1177438829,
+                    "Data3": 1431117501,
+                    "Data4": -326572916
+                },
+                "Path": "event:/Ambience/Forest"
+            }
+        },
+        {
+            "Key": "UI_Cancel",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 708724966,
+                    "Data2": 1130599676,
+                    "Data3": -768382828,
+                    "Data4": 8080861
+                },
+                "Path": "event:/UI/Cancel"
+            }
+        },
+        {
+            "Key": "Weapons_Machine_Gun",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -373839110,
+                    "Data2": 1100164592,
+                    "Data3": 1319579315,
+                    "Data4": -1597025449
+                },
+                "Path": "event:/Weapons/Machine Gun"
+            }
+        },
+        {
+            "Key": "Vehicles_Car_Engine",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 209937332,
+                    "Data2": 1335632815,
+                    "Data3": 1359563695,
+                    "Data4": -2072128577
+                },
+                "Path": "event:/Vehicles/Car Engine"
+            }
+        },
+        {
+            "Key": "Vehicles_Ride_on_Mower",
+            "EventReference": {
+                "Guid": {
+                    "Data1": 2057693425,
+                    "Data2": 1120308930,
+                    "Data3": 1091724724,
+                    "Data4": 1436550054
+                },
+                "Path": "event:/Vehicles/Ride-on Mower"
+            }
+        },
+        {
+            "Key": "VO_Main_Menu",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -1481108970,
+                    "Data2": 1268579083,
+                    "Data3": -1749516898,
+                    "Data4": 563633538
+                },
+                "Path": "event:/VO/Main Menu"
+            }
+        },
+        {
+            "Key": "VO_Welcome",
+            "EventReference": {
+                "Guid": {
+                    "Data1": -672482519,
+                    "Data2": 1079487449,
+                    "Data3": -101840716,
+                    "Data4": 711972407
+                },
+                "Path": "event:/VO/Welcome"
+            }
+        }
+    ]
+}

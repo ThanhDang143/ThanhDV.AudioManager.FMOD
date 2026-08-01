@@ -16,7 +16,7 @@ jobs:
     # ====================================================================
     defaults:
       run:
-        working-directory: Assets/Packages/AudioManager/FMOD
+        working-directory: Assets/Packages/AudioConductor/FMOD
 
     # ====================================================================
     # 🌐 SHARED CONFIG — same across all your projects, rarely changes

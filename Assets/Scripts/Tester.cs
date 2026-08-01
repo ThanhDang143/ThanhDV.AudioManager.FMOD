@@ -1,79 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
 using FMOD.Studio;
-using FMODUnity;
 using UnityEngine;
 
-namespace ThanhDV.AudioManager.FMOD
+namespace ThanhDV.AudioConductor.FMOD
 {
     public class Tester : MonoBehaviour
     {
-        [SerializeField] private EventReference _bgmEventReference;
-        [SerializeField] private EventReference _footEventReference;
-        [SerializeField] private EventReference _loopReference;
-        [SerializeField] private EventReference _oneShot;
+        private const string LOOP_ID = "Loop";
 
-        void Start()
+        private void Start()
         {
-            // AudioManager.Instance.PlayBGM("event:/Music/Level 02");
+            AudioConductor.Instance.PlayBGM(FMODEventReference.Music_Level_02);
         }
 
-        void Update()
+        private void OnGUI()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            const float width = 280f;
+            const float height = 46f;
+
+            GUI.skin.button.fontSize = 18;
+
+            GUILayout.BeginArea(new Rect(12, 12, width + 16, Screen.height - 24));
+
+            if (GUILayout.Button("Play BGM", GUILayout.Width(width), GUILayout.Height(height)))
+                AudioConductor.Instance.PlayBGM(FMODEventReference.Music_Level_02);
+
+            if (GUILayout.Button("Stop BGM", GUILayout.Width(width), GUILayout.Height(height)))
+                AudioConductor.Instance.StopBGM();
+
+            if (GUILayout.Button("One-Shot", GUILayout.Width(width), GUILayout.Height(height)))
+                AudioConductor.Instance.PlayOneShot(FMODEventReference.UI_Okay);
+
+            if (GUILayout.Button("Play Loop", GUILayout.Width(width), GUILayout.Height(height)))
+                AudioConductor.Instance.PlayLoop(LOOP_ID, FMODEventReference.Weapons_Machine_Gun, gameObject);
+
+            if (GUILayout.Button("Stop Loop", GUILayout.Width(width), GUILayout.Height(height)))
+                AudioConductor.Instance.StopLoop(LOOP_ID);
+
+            if (GUILayout.Button("Loop Pitch x2", GUILayout.Width(width), GUILayout.Height(height)))
             {
-                AudioManager.Instance.PlayOneShot(_oneShot);
+                if (AudioConductor.Instance.TryGetEventInstance(LOOP_ID, out EventInstance instance))
+                    instance.setPitch(2f);
             }
 
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (GUILayout.Button("Loop Pitch x0.5", GUILayout.Width(width), GUILayout.Height(height)))
             {
-                AudioManager.Instance.TryGetEventInstance("Loop", out EventInstance instance);
-                instance.setPitch(2f);
+                if (AudioConductor.Instance.TryGetEventInstance(LOOP_ID, out EventInstance instance))
+                    instance.setPitch(0.5f);
             }
 
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                AudioManager.Instance.TryGetEventInstance("Loop", out EventInstance instance);
-                instance.setPitch(0.5f);
-            }
+            if (GUILayout.Button("Dispose AudioConductor", GUILayout.Width(width), GUILayout.Height(height)))
+                AudioConductor.Dispose();
 
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                AudioManager.Instance.StopBGM();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha5))
-            {
-                AudioManager.Instance.PlayLoop("X", _footEventReference, gameObject);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha6))
-            {
-                AudioManager.Instance.StopLoop("X");
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha7))
-            {
-                Destroy(AudioManager.Instance.gameObject);
-            }
-
-            // if (Input.GetKeyDown(KeyCode.Alpha8))
-            // {
-            //     float volume = AudioManager.Instance.GetVolume(AudioType.MASTER);
-            //     AudioManager.Instance.SetVolume(AudioType.MASTER, volume <= 0 ? 1f : 0f);
-            // }
-
-            // if (Input.GetKeyDown(KeyCode.Alpha9))
-            // {
-            //     float volume = AudioManager.Instance.GetVolume(AudioType.BGM);
-            //     AudioManager.Instance.SetVolume(AudioType.BGM, volume <= 0 ? 1f : 0f);
-            // }
-
-            // if (Input.GetKeyDown(KeyCode.Alpha0))
-            // {
-            //     float volume = AudioManager.Instance.GetVolume(AudioType.SFX);
-            //     AudioManager.Instance.SetVolume(AudioType.SFX, volume <= 0 ? 1f : 0f);
-            // }
+            GUILayout.EndArea();
         }
     }
 }

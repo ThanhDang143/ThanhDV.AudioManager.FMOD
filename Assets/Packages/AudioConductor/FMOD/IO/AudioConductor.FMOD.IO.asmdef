@@ -1,0 +1,20 @@
+{
+    "name": "AudioConductor.FMOD.IO",
+    "rootNamespace": "ThanhDV.AudioConductor.FMOD",
+    "references": [
+        "GUID:c9d3de02e6b1f174481556e58b8a3aa2",
+        "GUID:44f0405589fe63740b19ac13da4637b7",
+        "GUID:0c752da273b17c547ae705acf0f2adf2"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

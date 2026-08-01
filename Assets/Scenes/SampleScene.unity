@@ -230,7 +230,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2099068621}
   - component: {fileID: 2099068622}
-  - component: {fileID: 2099068623}
   m_Layer: 0
   m_Name: Tester
   m_TagString: Untagged
@@ -265,47 +264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4afb0a179eb92334c946d9572a32a2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bgmEventReference:
-    Guid:
-      Data1: 1125158724
-      Data2: 1215768668
-      Data3: -380992089
-      Data4: 1039913086
-    Path: event:/Character/Door Close
-  _footEventReference:
-    Guid:
-      Data1: -1700598587
-      Data2: 1321134667
-      Data3: 1258668933
-      Data4: -853691887
-    Path: event:/Character/Dialogue
-  _loopReference:
-    Guid:
-      Data1: -334097318
-      Data2: 1260140306
-      Data3: 651052185
-      Data4: -1957406073
-    Path: event:/Music/Level 03
-  _oneShot:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
---- !u!114 &2099068623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2099068620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db87d1ce05cebc14896c8ef02ebca9a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioVolumes: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
